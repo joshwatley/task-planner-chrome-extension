@@ -1,0 +1,188 @@
+:root {
+    --rad: 0.8rem;
+    --dur: 0.4s;
+    --color-dark: #2f2f2f;
+    --color-light: #fff;
+    /* --color-brand: #57bd84; */
+    --color-brand: #f33d6d;
+    /* --font-fam: 'Lato', sans-serif; */
+    --height: 3rem;
+    --btn-width: 2.5rem;
+    --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif !important;
+}
+
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    border-radius: 2rem;
+}
+
+body {
+    width: 390px;
+    height: 600px;
+    /* background-image: url('bg4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+.container {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    padding: 1rem;
+    text-align: left;
+    color: #4b2b30;
+}
+
+.search-sec {
+    padding: 1rem;
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+form {
+    position: relative;
+    width: 29rem;
+    background: var(--color-brand);
+    border-radius: var(--rad);
+}
+
+.lb,
+.input-bar,
+.add-task .input-bar::placeholder {
+    font-size: 1.5rem !important;
+}
+
+.input-bar,
+.add-task {
+    height: var(--height);
+    font-family: var(--font-fam);
+    border: 0;
+    color: var(--color-dark);
+    font-size: 1.8rem;
+}
+
+.add-task:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.208);
+    cursor: pointer;
+}
+
+.input-bar[type="text"] {
+    outline: 0;
+    width: 100%;
+    background: var(--color-light);
+    /* background: transparent; */
+    padding: 0 0rem;
+    border-radius: 0.7rem;
+    appearance: none;
+    transition: all var(--dur) var(--bez);
+    transition-property: width, border-radius;
+    z-index: 1;
+    position: relative;
+}
+
+.add-task {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    border: none;
+    width: var(--btn-width);
+    font-weight: bold;
+    background: var(--color-brand);
+    border-radius: 0 var(--rad) var(--rad) 0;
+}
+
+.input-bar:not(:placeholder-shown) {
+    border-radius: 0.7rem 0 0 0.7rem;
+    width: calc(100% - var(--btn-width));
+}
+
+.input-bar:not(:placeholder-shown)+.add-task {
+    display: block;
+}
+
+.lb {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.task-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-list {
+    list-style: none;
+}
+
+.delete-button {
+    height: 30px;
+    width: 30px;
+    margin-right: 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #f33d6d;
+    border-radius: 5px;
+    border: none;
+}
+
+.delete-button:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.208);
+    cursor: pointer;
+}
+
+.task {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: all 0.7s ease;
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.task li {
+    width: 85%;
+    text-align: left;
+    font-size: 1rem;
+    word-wrap: break-word;
+    color: #988b91;
+}
+
+
+/* delete task animation */
+
+.fall {
+    text-decoration: line-through;
+    overflow-y: auto;
+    /* transform: translateY(8rem) rotateZ(20deg); */
+    transform: translateX(-8rem);
+    opacity: 0.4;
+}

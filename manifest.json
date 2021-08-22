@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "name": "Day Planner Extension",
+    "description": "Plan  your day from the comfort of your browser",
+    "version": "1.0",
+    "content_scripts": [{
+        "run_at": "document_start",
+        "matches": ["<all_urls>"],
+        "js": ["popup.js"]
+    }],
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "permissions": ["storage"]
+}
